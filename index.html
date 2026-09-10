@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joseph Chima Okeoma | AI Automation Engineer</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS VARIABLES - LIGHT MODE (Default) */
+        :root {
+            /* Main Backgrounds */
+            --bg-color: #FFFFFF;
+            --bg-secondary: #F8F7F4; 
+            --bg-card: #FFFFFF;
+            
+            /* Text Colors */
+            --text-color: #1A1A1A;
+            --text-secondary: #555555;
+            
+            /* Accents & Borders */
+            --border-color: #E5E3DD;
+            --accent-color: #003355; 
+            --accent-hover: #004477;
+            
+            /* Typography */
+            --font-main: 'Inter', sans-serif;
+            
+            /* Spacing */
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --container-width: 1100px;
+            --border-radius: 8px;
+
+            /* Transitions */
+            --transition-speed: 0.3s;
+        }
+
+        /* DARK MODE OVERRIDES */
+        [data-theme="dark"] {
+            /* Main Backgrounds */
+            --bg-color: #121212;
+            --bg-secondary: #1E1E1E; 
+            --bg-card: #1E1E1E;
+            
+            /* Text Colors */
+            --text-color: #F0F0F0;
+            --text-secondary: #A0A0A0;
+            
+            /* Accents & Borders */
+            --border-color: #333333;
+            --accent-color: #4A90E2; /* Brighter blue for dark mode contrast */
+            --accent-hover: #6BA3EB;
+        }
+
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition-speed);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* LAYOUT UTILITIES */
+        .container {
+            width: 90%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+
+        .section {
+            padding: var(--spacing-lg) 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color var(--transition-speed), border-color var(--transition-speed);
+        }
+
+        .section.bg-alt {
+            background-color: var(--bg-secondary);
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-header {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            text-align: center;
+            transition: all var(--transition-speed);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #FFFFFF;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-color);
+            border-color: var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-color);
+            background-color: var(--bg-color);
+        }
+
+        .btn-text {
+            color: var(--accent-color);
+            padding: 0;
+            font-weight: 500;
+        }
+
+        .btn-text:hover {
+            text-decoration: underline;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* NAVIGATION */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            transition: background-color var(--transition-speed);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-cta {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            transition: background-color 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--border-color);
+        }
+
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: var(--spacing-lg) 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .hero-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-color);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 600;
+        }
+
+        .hero-headline {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-color);
+        }
+
+        .hero-text {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+            max-width: 500px;
+            font-size: 1.05rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: box-shadow var(--transition-speed);
+        }
+        
+        [data-theme="dark"] .hero-image {
+             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* CREDIBILITY BAR */
+        .credibility-bar {
+            padding: var(--spacing-md) 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .credibility-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .credibility-item strong {
+            display: block;
+            font-size: 1.25rem;
+            color: var(--accent-color);
+        }
+
+        .credibility-item span {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* ABOUT & SERVICES */
+        .about-content {
+            max-width: 800px;
+        }
+
+        .about-text {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .focus-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .focus-item {
+            padding: 0.5rem 1rem;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: background-color var(--transition-speed), border-color var(--transition-speed);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .service-card {
+            padding: var(--spacing-md);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            transition: all var(--transition-speed);
+            background-color: var(--bg-card);
+        }
+
+        .service-card:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 15px rgba(0, 51, 85, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .service-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .service-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* AUTOMATION PORTFOLIO */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .project-card {
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: var(--bg-card);
+            transition: all var(--transition-speed);
+        }
+
+        .project-card:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transform: translateY(-2px);
+        }
+
+        .project-header {
+            margin-bottom: 1rem;
+        }
+
+        .project-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .project-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-desc-short {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .workflow-preview {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            background: var(--bg-secondary);
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .tools-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .tool-tag {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+        }
+
+        .automation-stack {
+            margin-top: var(--spacing-lg);
+            text-align: center;
+        }
+        
+        .stack-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .stack-tag {
+            padding: 0.5rem 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: background-color var(--transition-speed);
+        }
+
+        /* WEB DEV & CHADATECH */
+        .web-project {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-md);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+            background: var(--bg-card);
+            transition: background-color var(--transition-speed);
+        }
+
+        .web-info h3 {
+            margin-bottom: 0.25rem;
+            color: var(--accent-color);
+        }
+        
+        .web-info p {
+            color: var(--text-secondary);
+        }
+
+        .chadatech-section {
+            /* Using variables instead of hardcoded color for dark mode support */
+            background-color: var(--bg-secondary); 
+            border: 1px solid var(--border-color);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        /* EXPERIENCE */
+        .timeline {
+            position: relative;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.95rem;
+            top: 0.25rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 2px solid var(--accent-color);
+            transition: background-color var(--transition-speed);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+            font-weight: 500;
+        }
+
+        .timeline-role {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .timeline-company {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--accent-color);
+        }
+
+        .timeline-desc li {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+            list-style-type: disc;
+            margin-left: 1rem;
+        }
+
+        /* RESEARCH & PUBS & CERTS */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .research-card {
+            border: 1px solid var(--border-color);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            background: var(--bg-card);
+            transition: background-color var(--transition-speed);
+        }
+
+        .research-card h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .research-card ul {
+            padding-left: 1.2rem;
+        }
+        
+        .research-card li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            list-style-type: disc;
+            margin-bottom: 0.4rem;
+        }
+
+        .pub-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .pub-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .pub-title {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .pub-link {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .cert-item {
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background: var(--bg-card);
+            transition: background-color var(--transition-speed);
+        }
+        
+        .cert-name {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .cert-issuer {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* SKILLS & IMPACT */
+        .skills-category {
+            margin-bottom: 2rem;
+        }
+
+        .skills-category h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .skill-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .chip {
+            background: var(--bg-secondary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            transition: background-color var(--transition-speed);
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            text-align: center;
+        }
+
+        .impact-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .impact-label {
+            color: var(--text-secondary);
+        }
+
+        /* CONTACT & FOOTER */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        .contact-info-item {
+            margin-bottom: 2rem;
+        }
+
+        .contact-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-value {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        footer {
+            background-color: #0F0F0F; /* Slightly darker than bg-color for visual anchor */
+            color: #FFFFFF;
+            padding: var(--spacing-lg) 0;
+            margin-top: var(--spacing-lg);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+        }
+
+        .footer-socials a {
+            color: #BBBBBB;
+        }
+        
+        .footer-socials a:hover {
+            color: #FFFFFF;
+        }
+
+        .footer-copy {
+            font-size: 0.85rem;
+            color: #888888;
+        }
+
+        /* MODAL */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--bg-color);
+            width: 100%;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            transition: background-color var(--transition-speed);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        .modal-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+            color: var(--accent-color);
+        }
+        
+        .modal-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.75rem 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                padding: 1rem 0;
+                border-bottom: 1px solid var(--border-color);
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 0.5rem 2rem;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: var(--spacing-md);
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">JOSEPH OKEOMA</a>
+            <div class="hamburger" id="hamburger">&#9776;</div>
+            <div class="nav-links" id="nav-links">
+                <a href="#about">About</a>
+                <a href="#automation-portfolio">Automations</a>
+                <a href="#web-development">Websites</a>
+                <a href="#experience">Experience</a>
+                <a href="#chadatech">ChadaTech</a>
+                <a href="#research">Research</a>
+                <a href="#contact" class="btn btn-primary nav-cta">Let's Talk</a>
+                
+                <!-- Theme Toggle Button -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <!-- Sun Icon -->
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <!-- Moon Icon (Hidden by JS) -->
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="container hero" id="hero">
+            <div class="hero-content">
+                <p class="hero-label">AI AUTOMATION ENGINEER</p>
+                <h1 class="hero-headline">I build practical AI automations, websites and digital systems.</h1>
+                <p class="hero-text">I help businesses and organizations streamline repetitive work with AI-powered workflows while building useful digital experiences and technology communities.</p>
+                <div class="hero-buttons">
+                    <a href="#automation-portfolio" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="https://z-cdn-media.chatglm.cn/files/427bab49-b465-4ff2-a27f-b3ce6e3caaa8.jpeg?auth_key=1889045656-269c35ac8d554ecaa298c87f9d5d118a-0-bdbceb81d038f1c4596f2eba901d9cd1" alt="Joseph Chima Okeoma" class="hero-image">
+                <!-- Location text removed as requested -->
+            </div>
+        </section>
+
+        <!-- CREDIBILITY STATS (BG ALT) -->
+        <section class="credibility-bar bg-alt">
+            <div class="container credibility-grid">
+                <div class="credibility-item">
+                    <strong>30+</strong>
+                    <span>Brands Worked With</span>
+                </div>
+                <div class="credibility-item">
+                    <strong>500K+</strong>
+                    <span>Post-launch User Engagements</span>
+                </div>
+                <div class="credibility-item">
+                    <strong>100+</strong>
+                    <span>Students & Learners Engaged</span>
+                </div>
+                <div class="credibility-item">
+                    <strong>Research</strong>
+                    <span>AI & Technology</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section class="section" id="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">About Me</h2>
+                </div>
+                <div class="about-content">
+                    <p class="about-text">Joseph Chima Okeoma is a Computer Science graduate and technology professional focused on Artificial Intelligence, AI automation, web development, human-computer interaction and ecosystem building.</p>
+                    <p class="about-text">He combines technical implementation, research, education and community building to create practical technology solutions.</p>
+                    <p class="about-text">His current focus is AI automation, where he uses tools such as n8n, AI models, APIs and business applications to turn repetitive processes into efficient workflows.</p>
+                    
+                    <div class="focus-list">
+                        <span style="font-size: 0.9rem; font-weight: 500; width: 100%;">Currently focused on:</span>
+                        <div class="focus-item">AI Automation</div>
+                        <div class="focus-item">Web Development</div>
+                        <div class="focus-item">Artificial Intelligence</div>
+                        <div class="focus-item">Technology Communities</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHAT I DO (BG ALT) -->
+        <section class="section bg-alt" id="what-i-do">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">What I Do</h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3 class="service-title">AI AUTOMATION</h3>
+                        <p class="service-desc">Designing AI-powered workflows that connect business tools, data and AI models.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3 class="service-title">WEB DEVELOPMENT</h3>
+                        <p class="service-desc">Building responsive websites and digital experiences for organizations and businesses.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3 class="service-title">AI & TECHNOLOGY</h3>
+                        <p class="service-desc">Working across artificial intelligence, machine learning, generative AI and emerging technologies.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3 class="service-title">ECOSYSTEM BUILDING</h3>
+                        <p class="service-desc">Training people and building communities around practical technology adoption.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI AUTOMATION PORTFOLIO -->
+        <section class="section" id="automation-portfolio">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Selected Automation Work</h2>
+                    <p class="section-subtitle">Practical workflows built to reduce repetitive work and improve business processes.</p>
+                </div>
+
+                <div class="portfolio-grid">
+                    <!-- Project 01 -->
+                    <div class="project-card" 
+                         data-title="Daily Sales Reporting Automation" 
+                         data-problem="Businesses needed a way to collect daily promoter sales submissions efficiently without manual data entry errors." 
+                         data-solution="An automated reporting workflow designed to collect submissions, organize sales by region and market, and generate structured end-of-day reports." 
+                         data-workflow="Google Forms → Google Sheets → Data Processing → Sales Categorization → Email Report" 
+                         data-tools="n8n, Google Forms, Google Sheets, JavaScript, Gmail">
+                        <div>
+                            <div class="project-header">
+                                <div class="project-category">Business Automation</div>
+                                <h3 class="project-name">Daily Sales Reporting</h3>
+                            </div>
+                            <p class="project-desc-short">Collects daily promoter sales submissions, organizes sales by region, and generates structured reports.</p>
+                            <div class="workflow-preview">
+                                <span>Google Forms → Sheets → Email</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="tools-grid">
+                                <span class="tool-tag">n8n</span>
+                                <span class="tool-tag">G-Sheets</span>
+                            </div>
+                            <button class="btn btn-text" style="margin-top: 1rem;" onclick="openModal(this)">View Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 02 -->
+                    <div class="project-card" 
+                         data-title="Recruitment Automation" 
+                         data-problem="Recruitment involved repetitive tasks in collecting candidate information and initial screening." 
+                         data-solution="An automation workflow designed to collect candidate information, support AI-assisted screening and simplify candidate communication." 
+                         data-workflow="Application Form → Candidate Data → AI Screening → Shortlist → Email" 
+                         data-tools="n8n, AI, Google Forms, Google Sheets, Email">
+                        <div>
+                            <div class="project-header">
+                                <div class="project-category">HR Automation</div>
+                                <h3 class="project-name">Recruitment Automation</h3>
+                            </div>
+                            <p class="project-desc-short">Reduces repetitive recruitment tasks with AI-assisted screening and simplified communication.</p>
+                            <div class="workflow-preview">
+                                <span>Form → AI Screen → Email</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="tools-grid">
+                                <span class="tool-tag">n8n</span>
+                                <span class="tool-tag">AI</span>
+                            </div>
+                            <button class="btn btn-text" style="margin-top: 1rem;" onclick="openModal(this)">View Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 03 -->
+                    <div class="project-card" 
+                         data-title="Expense Tracking Automation" 
+                         data-problem="Manual expense tracking was prone to errors and delayed reporting." 
+                         data-solution="An automated workflow for collecting expense submissions, organizing records and generating periodic reports." 
+                         data-workflow="Expense Submission → Google Sheets → Categorization → Weekly Summary → Email" 
+                         data-tools="n8n, Google Forms, Google Sheets, JavaScript, Gmail">
+                        <div>
+                            <div class="project-header">
+                                <div class="project-category">Operations</div>
+                                <h3 class="project-name">Expense Tracking</h3>
+                            </div>
+                            <p class="project-desc-short">Automates expense collection, categorization, and weekly summary reporting.</p>
+                            <div class="workflow-preview">
+                                <span>Submission → Categorize → Report</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="tools-grid">
+                                <span class="tool-tag">n8n</span>
+                                <span class="tool-tag">G-Sheets</span>
+                            </div>
+                            <button class="btn btn-text" style="margin-top: 1rem;" onclick="openModal(this)">View Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 04 -->
+                    <div class="project-card" 
+                         data-title="Social Media Content Automation" 
+                         data-problem="Content organization and publishing across platforms was inconsistent and time-consuming." 
+                         data-solution="An automation workflow designed to organize content and streamline social media publishing processes." 
+                         data-workflow="Content Database → Content Processing → Platform Formatting → Publishing" 
+                         data-tools="n8n, Google Sheets, Google Drive, Social Media APIs">
+                        <div>
+                            <div class="project-header">
+                                <div class="project-category">Marketing Automation</div>
+                                <h3 class="project-name">Content Automation</h3>
+                            </div>
+                            <p class="project-desc-short">Organizes content database and streamlines social media publishing processes.</p>
+                            <div class="workflow-preview">
+                                <span>Database → Process → Publish</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="tools-grid">
+                                <span class="tool-tag">n8n</span>
+                                <span class="tool-tag">APIs</span>
+                            </div>
+                            <button class="btn btn-text" style="margin-top: 1rem;" onclick="openModal(this)">View Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 05 -->
+                    <div class="project-card" 
+                         data-title="Sales Target Tracker" 
+                         data-problem="Tracking sales performance against targets required manual calculation and reporting." 
+                         data-solution="An automated sales tracking workflow designed to compare sales performance against targets and provide timely reporting." 
+                         data-workflow="Sales Data → Target Calculation → Performance Analysis → Progress Report" 
+                         data-tools="n8n, Google Sheets, JavaScript, Gmail">
+                        <div>
+                            <div class="project-header">
+                                <div class="project-category">Sales Automation</div>
+                                <h3 class="project-name">Sales Target Tracker</h3>
+                            </div>
+                            <p class="project-desc-short">Compares sales performance against targets and generates progress reports automatically.</p>
+                            <div class="workflow-preview">
+                                <span>Calculation → Analysis → Report</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="tools-grid">
+                                <span class="tool-tag">n8n</span>
+                                <span class="tool-tag">JavaScript</span>
+                            </div>
+                            <button class="btn btn-text" style="margin-top: 1rem;" onclick="openModal(this)">View Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 06 -->
+                    <div class="project-card" 
+                         data-title="Staff Attendance Reporting" 
+                         data-problem="Collecting and processing staff attendance was manual and slow." 
+                         data-solution="An automated attendance workflow designed to collect staff attendance information and simplify reporting." 
+                         data-workflow="Attendance Form → Google Sheets → Attendance Processing → Report" 
+                         data-tools="n8n, Google Forms, Google Sheets, Gmail">
+                        <div>
+                            <div class="project-header">
+                                <div class="project-category">Operations</div>
+                                <h3 class="project-name">Staff Attendance Reporting</h3>
+                            </div>
+                            <p class="project-desc-short">Automates staff attendance collection and simplifies reporting processes.</p>
+                            <div class="workflow-preview">
+                                <span>Form → Process → Report</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="tools-grid">
+                                <span class="tool-tag">n8n</span>
+                                <span class="tool-tag">Gmail</span>
+                            </div>
+                            <button class="btn btn-text" style="margin-top: 1rem;" onclick="openModal(this)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="automation-stack">
+                    <h3 style="font-size: 1.1rem; font-weight: 600;">Tools I Use</h3>
+                    <div class="stack-tags">
+                        <span class="stack-tag">n8n</span>
+                        <span class="stack-tag">OpenAI API</span>
+                        <span class="stack-tag">AI Agents</span>
+                        <span class="stack-tag">APIs</span>
+                        <span class="stack-tag">Webhooks</span>
+                        <span class="stack-tag">Google Sheets</span>
+                        <span class="stack-tag">Google Forms</span>
+                        <span class="stack-tag">Gmail</span>
+                        <span class="stack-tag">JavaScript</span>
+                        <span class="stack-tag">Python</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WEB DEVELOPMENT (BG ALT) -->
+        <section class="section bg-alt" id="web-development">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Web Development</h2>
+                    <p class="section-subtitle">Selected websites I've worked on.</p>
+                </div>
+
+                <div class="web-project">
+                    <div class="web-info">
+                        <h3>Diamond Giant Consulting</h3>
+                        <p>Professional business website project.</p>
+                    </div>
+                    <a href="https://diamondgiantconsulting1.com/" target="_blank" class="btn btn-secondary">Visit Website</a>
+                </div>
+
+                <div class="web-project">
+                    <div class="web-info">
+                        <h3>Nigeria Youth Society Development</h3>
+                        <p>Website project for a youth and development organization.</p>
+                    </div>
+                    <a href="http://nigeriayouthsocietydevelopment.com/" target="_blank" class="btn btn-secondary">Visit Website</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHADATECH -->
+        <section class="section" id="chadatech">
+            <div class="container">
+                <div class="chadatech-section">
+                    <h2 class="section-title">ChadaTech</h2>
+                    <p class="section-subtitle" style="margin: 0 auto 1.5rem auto;">Building people who can build with technology.</p>
+                    <p style="max-width: 600px; margin: 0 auto 2rem auto; color: var(--text-secondary);">
+                        ChadaTech is a technology community focused on helping people learn and apply AI automation, emerging technologies and practical digital skills.
+                    </p>
+                    <div class="focus-list" style="justify-content: center; margin-bottom: 2rem;">
+                        <div class="focus-item">AI Automation Training</div>
+                        <div class="focus-item">Practical Learning</div>
+                        <div class="focus-item">Community Building</div>
+                        <div class="focus-item">Technology Adoption</div>
+                    </div>
+                    <button class="btn btn-primary">Learn About ChadaTech</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE (BG ALT) -->
+        <section class="section bg-alt" id="experience">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Experience</h2>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Nov 2022 – Dec 2024</div>
+                        <h3 class="timeline-role">VR Developer / Designer</h3>
+                        <div class="timeline-company">TRUEDIS MEDIA</div>
+                        <ul class="timeline-desc">
+                            <li>Contributed to an educational VR project, helping progress completion from 20% to 90%.</li>
+                            <li>Designed immersive virtual environments using Blender and Oculus tools.</li>
+                            <li>Supported the project launch, achieving over 500,000 post-launch user engagements.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">Jan 2022 – Dec 2024</div>
+                        <h3 class="timeline-role">Research Assistant</h3>
+                        <div class="timeline-company">FEDERAL UNIVERSITY OYE-EKITI</div>
+                        <ul class="timeline-desc">
+                            <li>Developed a 3D Virtual Reality Classroom using Unity 3D, Mozilla Hubs and Oculus Rift.</li>
+                            <li>Engaged 100+ students.</li>
+                            <li>Worked on AI, machine learning and deep learning research.</li>
+                            <li>Led a breast cancer detection and classification project using TensorFlow, Keras and PyTorch.</li>
+                            <li>Worked with 100,000+ mammographic images.</li>
+                            <li>Achieved 95% model accuracy.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">Jan 2025 – Present (Additional: Sept 2018 – Jan 2023)</div>
+                        <h3 class="timeline-role">Research Assistant</h3>
+                        <div class="timeline-company">RESEARCH HUB NEXUS</div>
+                        <ul class="timeline-desc">
+                            <li>Co-authored AI and Deep Learning research.</li>
+                            <li>Contributed to Explainable AI.</li>
+                            <li>Worked on AI applications for public health surveillance.</li>
+                            <li>Collaborated on Machine Learning and Data Science research.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">Feb 2021 – Apr 2021</div>
+                        <h3 class="timeline-role">Web Design Tutor</h3>
+                        <div class="timeline-company">TODAY'S TECH</div>
+                        <ul class="timeline-desc">
+                            <li>Trained 10+ students in HTML, CSS and WordPress.</li>
+                            <li>Led a team project from planning to website launch.</li>
+                            <li>Helped grow a web design community from 5 to 10+ active members.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">Aug 2024 – Nov 2024</div>
+                        <h3 class="timeline-role">Community / Technology Contribution</h3>
+                        <div class="timeline-company">TECH UNPLUGGED</div>
+                        <ul class="timeline-desc">
+                            <li>Created 50+ interactive visuals using AI tools.</li>
+                            <li>Led a 3-member team.</li>
+                            <li>Helped increase event engagement from 600 to 17,000+ participants.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">Technology / Community Contribution</div>
+                        <h3 class="timeline-role">Contributor</h3>
+                        <div class="timeline-company">AFRICA FUTURE LEADERS CONFERENCE</div>
+                        <ul class="timeline-desc">
+                            <li>Created and managed AI-powered videos.</li>
+                            <li>Led 4 collaborators.</li>
+                            <li>Increased event attendance by 40% to 500+ participants.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">NYSC</div>
+                        <h3 class="timeline-role">Community Development Service</h3>
+                        <div class="timeline-company">FRSC</div>
+                        <ul class="timeline-desc">
+                            <li>Created AI-driven videos and content.</li>
+                            <li>Led a 10-member media team.</li>
+                            <li>Increased audience reach from 500 to 10,000+ viewers.</li>
+                            <li>Strengthened community engagement.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.5rem;">
+                    <button id="toggle-earlier" class="btn btn-secondary" style="width: 100%; font-size: 0.9rem;">View Earlier Experience</button>
+                    <div id="earlier-content" class="hidden" style="margin-top: 1.5rem;">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-date">Earlier</div>
+                                <h3 class="timeline-role">IT Support Specialist</h3>
+                                <div class="timeline-company">LABCA</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">Earlier</div>
+                                <h3 class="timeline-role">IT Support Intern</h3>
+                                <div class="timeline-company">First Bank</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESEARCH -->
+        <section class="section" id="research">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Research & Emerging Technology</h2>
+                </div>
+                <div class="research-grid">
+                    <div class="research-card">
+                        <h4>Interactive 3D Classroom with User Support Using Virtual Reality</h4>
+                        <ul>
+                            <li>Built an immersive VR classroom ecosystem.</li>
+                            <li>Included 4 virtual classrooms and staff rooms.</li>
+                            <li>Used Blender, Unity, Unreal Engine and Mozilla Spoke.</li>
+                            <li>Integrated interactive media and AI-powered search.</li>
+                            <li>Built a SQL-backed database.</li>
+                            <li>Tested with 50 students and 5 educators.</li>
+                            <li>Achieved an 80% improvement in engagement and immersion compared to traditional classrooms.</li>
+                            <li>Presented to 100+ attendees.</li>
+                            <li>Awarded Best Final-Year Project.</li>
+                        </ul>
+                    </div>
+                    <div class="research-card">
+                        <h4>AI-Enhanced Differentiated Learning in Elementary STEM</h4>
+                        <ul>
+                            <li>Supported adaptive instruction for 120+ students.</li>
+                            <li>Recorded a 78% increase in engagement.</li>
+                            <li>Recorded a 65% improvement in learning outcomes.</li>
+                            <li>Collaborated with 8 educators.</li>
+                            <li>Analysed over 1,000 learner interaction data points.</li>
+                        </ul>
+                    </div>
+                    <div class="research-card">
+                        <h4>Breast Cancer Detection and Classification Using Deep Learning</h4>
+                        <ul>
+                            <li>Worked with 100,000+ mammographic images.</li>
+                            <li>Used TensorFlow, Keras and PyTorch.</li>
+                            <li>Achieved 95% accuracy.</li>
+                            <li>Received university recognition.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PUBLICATIONS (BG ALT) -->
+        <section class="section bg-alt" id="publications">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Selected Publications</h2>
+                </div>
+                <div class="pub-list">
+                    <div class="pub-item">
+                        <div class="pub-title">AI-Driven STEM Education for Public Health in Sustainable Agriculture</div>
+                        <a href="https://doi.org/10.30574/wjarr.2025.28.2.3697" target="_blank" class="pub-link">View Publication</a>
+                    </div>
+                    <div class="pub-item">
+                        <div class="pub-title">Adopting Artificial Intelligence in Small And Medium Enterprises: Exploring Administrative Challenges and Strategic Pathways For Effective Implementation</div>
+                        <a href="http://dx.doi.org/10.22178/pos.123-10" target="_blank" class="pub-link">View Publication</a>
+                    </div>
+                    <div class="pub-item">
+                        <div class="pub-title">Generative AI in Marketing Communications: Implications for Brand Distinctiveness, Consumer Trust, And Regulatory Disclosure</div>
+                        <a href="https://doi.org/10.5281/zenodo.17749967" target="_blank" class="pub-link">View Publication</a>
+                    </div>
+                    <div class="pub-item">
+                        <div class="pub-title">AI-Enhanced Differentiated Learning in Elementary STEM: Promoting Mental Health, Psychological Resilience and Equity</div>
+                        <a href="https://doi.org/10.30574/wjarr.2025.28.1.3442" target="_blank" class="pub-link">View Publication</a>
+                    </div>
+                    <div class="pub-item">
+                        <div class="pub-title">Artificial Intelligence for Public Health Surveillance <span style="color: var(--text-secondary); font-weight: 400; font-size: 0.9rem;">(Under Review)</span></div>
+                    </div>
+                    <div class="pub-item">
+                        <div class="pub-title">Advances in Explainable AI for Critical Decision Systems <span style="color: var(--text-secondary); font-weight: 400; font-size: 0.9rem;">(Under Review)</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS -->
+        <section class="section" id="certifications">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Certifications</h2>
+                </div>
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <div class="cert-name">Generative AI: The Future of UX/UI Design</div>
+                        <div class="cert-issuer">IBM / Coursera | 2025</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Introduction to Modern AI</div>
+                        <div class="cert-issuer">University of Michigan / Coursera | 2025</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Generative AI: Prompt Engineering Basics</div>
+                        <div class="cert-issuer">IBM / Coursera | 2025</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Introduction to User Experience Principles and Processes</div>
+                        <div class="cert-issuer">University of Michigan / Coursera | 2025</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Foundations of Cybersecurity</div>
+                        <div class="cert-issuer">Google / Coursera | 2025</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Introduction to Artificial Intelligence</div>
+                        <div class="cert-issuer">Simplilearn | 2024</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Understanding Research Methods</div>
+                        <div class="cert-issuer">SOAS University of London | 2025</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">How to Write and Publish a Scientific Paper</div>
+                        <div class="cert-issuer">Ecole Polytechnique | 2025</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Jobberman Soft Skills Training</div>
+                        <div class="cert-issuer">Mastercard Foundation | 2023</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AFFILIATIONS (BG ALT) -->
+        <section class="section bg-alt" id="affiliations">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Professional Affiliations</h2>
+                </div>
+                <div class="focus-list">
+                    <div class="focus-item">International Association of Engineers</div>
+                    <div class="focus-item">Research Hub Nexus Institute</div>
+                    <div class="focus-item">Computer Science Research Group</div>
+                    <div class="focus-item">Global AI Community</div>
+                    <div class="focus-item">The AI Foundation</div>
+                    <div class="focus-item">South African Artificial Intelligence Association</div>
+                    <div class="focus-item">National Association of Computer Science Students (NACOS)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="section" id="skills">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Technical Skills</h2>
+                </div>
+                
+                <div class="skills-category">
+                    <h4>AI & Automation</h4>
+                    <div class="skill-chips">
+                        <span class="chip">n8n</span>
+                        <span class="chip">AI Agents</span>
+                        <span class="chip">OpenAI API</span>
+                        <span class="chip">Generative AI</span>
+                        <span class="chip">Prompt Engineering</span>
+                        <span class="chip">Machine Learning</span>
+                        <span class="chip">Deep Learning</span>
+                        <span class="chip">Python</span>
+                        <span class="chip">TensorFlow</span>
+                        <span class="chip">PyTorch</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>Web</h4>
+                    <div class="skill-chips">
+                        <span class="chip">HTML</span>
+                        <span class="chip">CSS</span>
+                        <span class="chip">JavaScript</span>
+                        <span class="chip">Git</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>Design & Interaction</h4>
+                    <div class="skill-chips">
+                        <span class="chip">Figma</span>
+                        <span class="chip">UX Design</span>
+                        <span class="chip">Human-Computer Interaction</span>
+                        <span class="chip">Usability Testing</span>
+                        <span class="chip">Interaction Design</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>Emerging Technology</h4>
+                    <div class="skill-chips">
+                        <span class="chip">Virtual Reality</span>
+                        <span class="chip">Augmented Reality</span>
+                        <span class="chip">Unity3D</span>
+                        <span class="chip">Unreal Engine</span>
+                        <span class="chip">Blender</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IMPACT (BG ALT) -->
+        <section class="section bg-alt" id="impact">
+            <div class="container">
+                <div class="impact-grid">
+                    <div class="impact-item">
+                        <span class="impact-number">30+</span>
+                        <span class="impact-label">Brands Worked With</span>
+                    </div>
+                    <div class="impact-item">
+                        <span class="impact-number">500K+</span>
+                        <span class="impact-label">Post-launch User Engagements</span>
+                    </div>
+                    <div class="impact-item">
+                        <span class="impact-number">100+</span>
+                        <span class="impact-label">Students & Learners Engaged</span>
+                    </div>
+                    <div class="impact-item">
+                        <span class="impact-number">100K+</span>
+                        <span class="impact-label">Images Used in Research</span>
+                    </div>
+                    <div class="impact-item">
+                        <span class="impact-number">17K+</span>
+                        <span class="impact-label">Event Participants Reached</span>
+                    </div>
+                    <div class="impact-item">
+                        <span class="impact-number">10K+</span>
+                        <span class="impact-label">FRSC Content Reach</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Let's Build Something Useful.</h2>
+                    <p class="section-subtitle">Have a process that could be automated, a website that needs to be built, or a technology project worth discussing? I'd be happy to connect.</p>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-details">
+                        <div class="contact-info-item">
+                            <div class="contact-label">Email</div>
+                            <div class="contact-value">josephokeoma07@gmail.com</div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-label">Phone / WhatsApp</div>
+                            <div class="contact-value">+234 810 189 2632</div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-label">Location</div>
+                            <div class="contact-value">Lagos, Nigeria</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-actions">
+                        <a href="mailto:josephokeoma07@gmail.com" class="btn btn-primary">Email Me</a>
+                        <a href="https://wa.me/2348101892632" target="_blank" class="btn btn-secondary">WhatsApp Me</a>
+                        <a href="https://www.linkedin.com/in/okiejoe" target="_blank" class="btn btn-secondary">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-content">
+            <div>
+                <h3>JOSEPH OKEOMA</h3>
+                <p style="color: #BBBBBB; font-size: 0.9rem;">AI Automation Engineer<br>Web Developer | Ecosystem Builder</p>
+                <p style="color: #BBBBBB; font-size: 0.9rem; margin-top: 0.5rem;">Lagos, Nigeria</p>
+            </div>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/okiejoe" target="_blank" style="text-decoration: underline;">LinkedIn</a>
+                <a href="https://www.instagram.com/josephokeoma" target="_blank" style="text-decoration: underline;">Instagram</a>
+                <a href="https://wa.me/2348101892632" target="_blank" style="text-decoration: underline;">WhatsApp</a>
+                <a href="mailto:josephokeoma07@gmail.com" style="text-decoration: underline;">Email</a>
+            </div>
+            <div class="footer-copy">
+                &copy; 2026 Joseph Okeoma. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- AUTOMATION DETAIL MODAL -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <h2 class="section-title" id="modal-title">Project Title</h2>
+            </div>
+            
+            <div class="modal-section">
+                <div class="modal-label">Problem</div>
+                <div class="modal-text" id="modal-problem">Description...</div>
+            </div>
+            
+            <div class="modal-section">
+                <div class="modal-label">Solution</div>
+                <div class="modal-text" id="modal-solution">Description...</div>
+            </div>
+            
+            <div class="modal-section">
+                <div class="modal-label">Workflow</div>
+                <div class="modal-text" id="modal-workflow" style="white-space: pre-wrap;">Flow...</div>
+            </div>
+            
+            <div class="modal-section">
+                <div class="modal-label">Tools Used</div>
+                <div class="modal-text" id="modal-tools">Tools...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // --- THEME TOGGLE LOGIC ---
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const sunIcon = document.querySelector('.sun-icon');
+        const moonIcon = document.querySelector('.moon-icon');
+        const htmlElement = document.documentElement;
+
+        // Check for saved user preference
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme) {
+            htmlElement.setAttribute('data-theme', savedTheme);
+            updateIcons(savedTheme);
+        } else if (systemPrefersDark) {
+            htmlElement.setAttribute('data-theme', 'dark');
+            updateIcons('dark');
+        }
+
+        function updateIcons(theme) {
+            if (theme === 'dark') {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            } else {
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            }
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcons(newTheme);
+        });
+
+
+        // --- MOBILE NAVIGATION ---
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // --- EARLIER EXPERIENCE TOGGLE ---
+        const toggleEarlierBtn = document.getElementById('toggle-earlier');
+        const earlierContent = document.getElementById('earlier-content');
+
+        if (toggleEarlierBtn) {
+            toggleEarlierBtn.addEventListener('click', () => {
+                if (earlierContent.classList.contains('hidden')) {
+                    earlierContent.classList.remove('hidden');
+                    toggleEarlierBtn.textContent = 'Hide Earlier Experience';
+                } else {
+                    earlierContent.classList.add('hidden');
+                    toggleEarlierBtn.textContent = 'View Earlier Experience';
+                }
+            });
+        }
+
+        // --- MODAL LOGIC ---
+        const modalOverlay = document.getElementById('modal-overlay');
+        const modalTitle = document.getElementById('modal-title');
+        const modalProblem = document.getElementById('modal-problem');
+        const modalSolution = document.getElementById('modal-solution');
+        const modalWorkflow = document.getElementById('modal-workflow');
+        const modalTools = document.getElementById('modal-tools');
+
+        window.openModal = function(button) {
+            const card = button.closest('.project-card');
+            modalTitle.textContent = card.getAttribute('data-title');
+            modalProblem.textContent = card.getAttribute('data-problem');
+            modalSolution.textContent = card.getAttribute('data-solution');
+            modalWorkflow.textContent = card.getAttribute('data-workflow');
+            modalTools.textContent = card.getAttribute('data-tools');
+
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.closeModal = function() {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        };
+
+        if (modalOverlay) {
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) {
+                    closeModal();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
